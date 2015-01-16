@@ -25,15 +25,15 @@ void Init()
 	mesh.addFace(4, 5, 6);
 	mesh.addFace(4, 6, 7);
 	engine->addMesh(mesh);
-	engine->setMode(RENDER_WIREFRAME);
+	engine->setMode(RENDER_POINT);
 }
 
 void Draw()
 {
 	Engine* engine = Engine::CreateSingleEngine();
 	Mesh &mesh = engine->getMesh(0);
-	mesh.rotation.x += 0.01;
-	mesh.rotation.y += 0.01;
+	//mesh.rotation.x += 0.01;
+	//mesh.rotation.y += 0.01;
 	HDC hDC = GetDC(g_hMainWindow);
 	BitBlt(hDC, 0, 0, MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT, 0, 0, 0, BLACKNESS);
 	engine->Render(hDC);

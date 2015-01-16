@@ -7,7 +7,7 @@ void Engine::Render(HDC hDC)
 	static int cw = MAIN_WINDOW_WIDTH >> 1;
 	static int ch = MAIN_WINDOW_HEIGHT >> 1;
 
-	MATRIX44 view = LookAt({ 0.0, 0.0, 10.0 }, { 0.0, 0, 0.0 }, { 0.0, 1.0, 0.0 });
+	MATRIX44 view = LookAt({ 0.0, 0.0, -10.0 }, { 0.0, 0, 0.0 }, { 0.0, 1.0, 0.0 });
 	MATRIX44 proj = Perspective(0.78, (float)MAIN_WINDOW_WIDTH / (float)MAIN_WINDOW_HEIGHT, 0.01, 1.0);
 
 	int n = meshes.size();
@@ -22,6 +22,9 @@ void Engine::Render(HDC hDC)
 				int x = projected.x * MAIN_WINDOW_WIDTH + cw;
 				int y = -projected.y * MAIN_WINDOW_HEIGHT + ch;
 				SetPixel(hDC, x, y, RGB(255, 255, 255));
+				char s[10];
+				sprintf(s, "%d", j);
+				TextOutA(hDC, x, y, s, 1);
 			}
 		}
 	}

@@ -11,5 +11,6 @@
     <ClInclude Include="math.hpp" />
     <ClInclude Include="mesh.hpp" />
     <ClInclude Include="window.hpp" />
+    <ClInclude Include="rasterize.h" />
   </ItemGroup>
 </Project>

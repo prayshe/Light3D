@@ -311,7 +311,7 @@ MATRIX44 Frustum(double width, double height, double znear, double zfar)
 	return MATRIX44{
 		znear2 / width, 0.0, 0.0, 0.0,
 		0.0, znear2 / height, 0.0, 0.0,
-		0.0, 0.0, -zfar / deepth, -1.0,
+		0.0, 0.0, -zfar / deepth, 1.0,
 		0.0, 0.0, znear * zfar / deepth, 0.0,
 	};
 }
@@ -323,7 +323,7 @@ MATRIX44 Perspective(double fov, double aspect, double znear, double zfar)
 	return MATRIX44{
 		tant / aspect, 0.0, 0.0, 0.0,
 		0.0, tant, 0.0, 0.0,
-		0.0, 0.0, -zfar / deepth, -1.0,
+		0.0, 0.0, -zfar / deepth, 1.0,
 		0.0, 0.0, znear * zfar / deepth, 0.0,
 	};
 }
